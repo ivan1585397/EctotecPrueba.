@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>My AngularJS App</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="lib/html5-boilerplate/dist/css/normalize.css">
+  <link rel="stylesheet" href="lib/html5-boilerplate/dist/css/main.css">
+  <link rel="stylesheet" href="app.css">
+  <script src="lib/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+  
+  <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+
+  <div ng-view></div>
+
+  <div>AngularJS <span app-version></span></div>
+  <title>Green Leaves</title>
+</head>
+<body ng-app="myApp"  >
+  <div ng-controller: "FormularioValidate">
+	<div align="center">
+		<br /> 
+		<br /> 
+		<img src="greenleaves.png" class="img-rounded" width="900" layout-align="center center">
+	</div>
+	<form name="registro" ng-submit:"registrar()" novalidate>
+		<meta charset="utf-8">
+		    <br />
+		    <font face="calibri">
+      
+          <div class="col-sm-12" align="center" > 
+              
+                <div class="col-sm-3" > 
+                    <label for="">Nombre:</label>
+                    <input class="form-control" type="text" name="nombre" ng-model="usuarioNombre" ng-class="{submitted:nuevoUsuario.submitted}"/>
+                    <br />  
+                  </div>	
+         
+                <div class="col-sm-3" > 
+                    <label for="">Email:</label>
+                    <input class="form-control" type="email" name="email" ng-model="usuarioEmail" required>
+                  <span ng-show="emailInvalido" >Por favor, introduzca un email valido</span><br /> 
+                </div>
+                    
+               <div class="col-sm-3">
+                  <label for="">Telefono:</label>
+                <input class="form-control" type="text" name="telefono" ng-model="usuarioTelefono" required>
+                <span ng-show="numeroInvalido">Por favor, introduzca un numero valido</span><br />
+               </div>
+               
+               <md-content ng-controller="AppCtrl as ctrl" layout-padding="" ng-cloak="" class="datepicker" ng-app="MyApp" >
+                  <label for="">Fecha: {{ctrl.myDate | date:shortDate}}</label>
+                  <md-datepicker ng-model="ctrl.myDate" md-placeholder="Enter date" ></md-datepicker>           
+               </md-content>
+
+              <div class="col-sm-3"> 
+                <label for="">Ciudad o Estado:</label>
+                  <input class="form-control" type="text" name="ciudad" ng-model="tuCiudad"/><br />
+              </div>
+             
+            
+          <div align="center"> <input class="button btn-primary" type="submit" value="Enviar" ng-click="guardarDatos(formBusqueda)"/> <div/>	   
+          </font>  
+
+  </form>
+  
+  <style>
+    .registro.ng-invalid {
+   background: red;
+ }
+  </style>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+  -->
+  <!-- Angular Material requires Angular.js Libraries -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-animate.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-aria.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-messages.min.js"></script>
+  <script src="lib/angular/angular.js"></script>
+  <script src="lib/angular-route/angular-route.js"></script>
+  <script src="app.js"></script>
+  <script src="view1/view1.js"></script>
+  <script src="view2/view2.js"></script>
+  <script src="core/version/version.js"></script>
+  <script src="core/version/version-directive.js"></script>
+  <script src="core/version/interpolate-filter.js"></script>
+  <!-- Angular Material Library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.js"></script>
+ 
+  
+</div>
+</body>
+</html>
